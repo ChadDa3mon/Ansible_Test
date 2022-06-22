@@ -1,5 +1,5 @@
 ---
-- hosts: ansible-awx
+- hosts: all
   become: yes
   tasks:
     - name: Update apt cache
