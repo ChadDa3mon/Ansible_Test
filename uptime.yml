@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: no
+  tasks:
+    - name: Check uptime prior reboot
+      shell: cut -d ' ' -f1 /proc/uptime
+      register: UPTIME_PRE_REBOOT
+
+    - name: Display  uptime (seconds)
+      debug:
+        msg: "Device has been up for {{ UPTIME_PRE_REBOOT.stdout_lines }} seconds."
